@@ -1,0 +1,4 @@
+creation_rules:
+  - path_regex: homes/kkroto/.*\.sops\.yaml
+    age: age17stnh09u3axmlcsxvmvc9net2q0yqw9ywpsp44pht3a2yre27d7qkshek2
+
