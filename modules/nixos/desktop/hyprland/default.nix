@@ -1,4 +1,4 @@
-{config, pkgs, ... }:
+{config, pkgs, inputs, ... }:
 
 {
     nix.settings = {
@@ -11,6 +11,7 @@
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
+
     };
 
     xdg.portal = {
@@ -18,22 +19,31 @@
       wlr.enable = true;
       extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland];
     };
-
+    
     environment.systemPackages = with pkgs; [
       wdisplays
       wl-clipboard
       xdg-utils
+      wofi
+      elegant-sddm
     ];
 
-    # Display manager
-    services.xserver.displayManager.startx.enable = true;
+    # # Display manager
+    services.displayManager.sddm.wayland.enable = true;
+    services.displayManager.sddm.enable = true;
+    services.displayManager.sddm.theme = "Elegant";
 
-    services.greetd = {
-      enable = true;
-      settings.default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-      };
-    };
+
+    programs.waybar.enable = true;
+    programs.hyprlock.enable = true;
+    #services.xserver.displayManager.startx.enable = true;
+
+    # services.greetd = {
+    #   enable = true;
+    #   settings.default_session = {
+    #     command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+    #   };
+    # };
 
     services.hypridle.enable = true;
 }

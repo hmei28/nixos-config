@@ -1,17 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-
+  # inputs.catppuccin.hyprland.enable = true;
+  # inputs.catppuccin.sddm.enable = true;
+  # inputs.catppuccin.flavor = "mocha";
   wayland.windowManager.hyprland = {
     enable = true;
 
-    extraConfig = ''
-      exec-once = steam
-      exec-once = discord
-
-      # MONITORS AND WORKSPACES
-      monitor=, preferred, auto, 1
-    '';
+    extraConfig = "monitor=, preferred, auto, 1";
 
     settings = {
       "$mod" = "SUPER";

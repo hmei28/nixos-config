@@ -9,6 +9,6 @@
     ../../modules/home/core.nix
     ../../modules/home/user
     ../../modules/home/app
-    ../../modules/home/desktop/hyprland
+    #../../modules/home/desktop/hyprland
   ];
 }
