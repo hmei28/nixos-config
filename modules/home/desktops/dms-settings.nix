@@ -9,11 +9,11 @@
         catppuccin = {
           dark = {
             flavor = "macchiato";
-            accent = "sapphire";
+            accent = "peach";
           };
           light = {
             flavor = "latte";
-            accent = "sapphire";
+            accent = "peach";
           };
         };
       };
@@ -65,19 +65,19 @@
       m3ElevationEnabled = true;
       m3ElevationIntensity = 12;
       m3ElevationOpacity = 30;
-      m3ElevationColorMode = "default";
+      m3ElevationColorMode = "primary";
       m3ElevationLightDirection = "top";
       m3ElevationCustomColor = "#000000";
       modalElevationEnabled = true;
       popoutElevationEnabled = true;
       barElevationEnabled = false;
-      blurEnabled = false;
+      blurEnabled = true;
       blurForegroundLayers = true;
       blurLayerOutlineOpacity = 0.12;
       blurBorderEnabled = true;
-      blurBorderColor = "outline";
+      blurBorderColor = "primary";
       blurBorderCustomColor = "#ffffff";
-      blurBorderOpacity = 0.35;
+      blurBorderOpacity = 0.41;
       wallpaperFillMode = "Stretch";
       blurredWallpaperLayer = false;
       blurWallpaperOnOverview = false;
@@ -334,31 +334,31 @@
       weatherEnabled = true;
       dashTabs = [
         {
+          enabled = true;
           id = "overview";
-          enabled = true;
         }
         {
+          enabled = true;
           id = "media";
-          enabled = true;
         }
         {
+          enabled = true;
           id = "wallpaper";
-          enabled = true;
         }
         {
+          enabled = true;
           id = "weather";
-          enabled = true;
         }
         {
-          id = "settings";
           enabled = true;
+          id = "settings";
         }
       ];
       networkPreference = "wifi";
-      iconThemeDark = "System Default";
+      iconThemeDark = "Bibata-Original-Ice";
       iconThemeLight = "System Default";
       iconThemePerMode = false;
-      lastAppliedIconTheme = "";
+      lastAppliedIconTheme = "Bibata-Original-Ice";
       cursorSettings = {
         dwl = {
           cursorHideTimeout = 0;
@@ -633,6 +633,7 @@
         {
           autoHide = false;
           autoHideDelay = 250;
+          barInsetPadding = 4;
           borderColor = "surfaceText";
           borderEnabled = false;
           borderOpacity = 1;
@@ -653,107 +654,110 @@
               id = "weather";
             }
           ];
+          clickThrough = false;
           enabled = true;
           fontScale = 1;
           gothCornerRadiusOverride = false;
           gothCornerRadiusValue = 63;
           gothCornersEnabled = true;
+          hoverPopoutDelay = 53;
+          hoverPopouts = false;
+          iconScale = 1;
           id = "default";
           innerPadding = 0;
           leftWidgets = [
             {
-              id = "workspaceSwitcher";
               enabled = true;
+              id = "workspaceSwitcher";
             }
             {
-              id = "focusedWindow";
               enabled = true;
-              focusedWindowSize = 0;
               focusedWindowCompactMode = true;
               focusedWindowShowIcon = false;
+              focusedWindowSize = 0;
+              id = "focusedWindow";
             }
           ];
           maximizeDetection = true;
+          maximizeWidgetIcons = false;
+          maximizeWidgetText = false;
           name = "Main Bar";
           noBackground = false;
           openOnOverview = false;
           popupGapsAuto = true;
           popupGapsManual = 4;
           position = 0;
+          removeWidgetPadding = false;
           rightWidgets = [
             {
-              id = "systemTray";
               enabled = false;
+              id = "systemTray";
               trayUseInlineExpansion = true;
             }
             {
+              enabled = true;
               id = "cpuUsage";
-              enabled = true;
               minimumWidth = false;
             }
             {
+              enabled = true;
               id = "memUsage";
-              enabled = true;
               minimumWidth = false;
-              showSwap = false;
               showInGb = false;
+              showSwap = false;
             }
             {
+              enabled = true;
               id = "network_speed_monitor";
-              enabled = true;
             }
             {
+              enabled = true;
               id = "notificationButton";
-              enabled = true;
             }
             {
-              id = "battery";
+              batteryPillStyle = false;
               enabled = true;
+              id = "battery";
               showBatteryPercent = true;
               showBatteryPercentOnlyOnBattery = false;
               showBatteryTime = false;
-              batteryPillStyle = false;
             }
             {
-              id = "controlCenterButton";
               enabled = true;
-              showNetworkIcon = true;
-              showBluetoothIcon = true;
+              id = "controlCenterButton";
               showAudioIcon = true;
               showAudioPercent = false;
+              showBluetoothIcon = true;
               showBrightnessIcon = false;
               showBrightnessPercent = false;
               showMicIcon = false;
               showMicPercent = false;
+              showNetworkIcon = true;
               showScreenSharingIcon = true;
+            }
+            {
+              id = "vpn";
+              enabled = true;
             }
           ];
           screenPreferences = [
             "all"
           ];
           scrollYBehavior = "workspace";
+          shadowIntensity = 0;
+          shadowOpacity = 60;
           showOnLastDisplay = true;
           spacing = 0;
           squareCorners = false;
           transparency = 0.32;
+          useOverlayLayer = false;
           visible = true;
           widgetOutlineColor = "primary";
           widgetOutlineEnabled = false;
           widgetOutlineOpacity = 0.07;
           widgetOutlineThickness = 1;
-          widgetTransparency = 0.3;
           widgetPadding = 13;
-          barInsetPadding = 4;
-          iconScale = 1;
-          maximizeWidgetIcons = false;
-          maximizeWidgetText = false;
-          removeWidgetPadding = false;
-          shadowIntensity = 0;
-          shadowOpacity = 60;
-          clickThrough = false;
-          useOverlayLayer = false;
-          hoverPopouts = false;
-          hoverPopoutDelay = 53;
+          widgetTransparency = 0.3;
         }
       ];
       desktopClockEnabled = false;
@@ -838,11 +842,11 @@
       
       ];
       builtInPluginSettings = {
-        dms_settings_search = {
-          trigger = "?";
-        };
         dms_clipboard_search = {
           trigger = "cb";
+        };
+        dms_settings_search = {
+          trigger = "?";
         };
       };
       clipboardClickToPaste = false;
