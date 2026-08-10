@@ -72,17 +72,19 @@ in
                   enabled = true,
               }
           })
+          hl.curve("easeOutQuint", { type = "bezier", points = { {0.23, 1}, {0.32, 1} } })
+          hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 8, bezier = "easeOutQuint", style = "slidevert" })
         '';
 
         "02-windowrules" = ''
 	  hl.layer_rule({ match = { namespace = "dms" }, no_anim = true })
           hl.window_rule({ match = { class = "^(blueman-manager)$" }, float = true })
 	  hl.window_rule({ match = { class = "^(org\\.gnome\\.)" }, border_size = 0, rounding = 12 })
-	  hl.window_rule({ match = { class = "^(kitty)$" }, border_size = 1 })
 	  -- Floating windows
-          hl.window_rule({ match = { class = "^(yazi)$" }, float = true, size = "80% 80%", center = true })
+          hl.window_rule({ match = { class = "^(yazi)$" }, float = true, size = "80% 80%", workspace = "special:yazi silent" })
           hl.window_rule({ match = { class = "^(com.danklinux.dms)$" }, float = true })
-          hl.window_rule({ match = { class = "^(org\\.gnome\\.Nautilus)$" }, float = true })
+          hl.window_rule({ match = { class = "^(org\\.gnome\\.Nautilus)$" }, float = true, workspace = "special:nautilus silent" })
+	  hl.window_rule({ match = { class = "^(kitty)$" }, border_size = 1 })
 
         '';
 
@@ -114,6 +116,7 @@ in
             hl.bind("SUPER + V", hl.dsp.exec_cmd("dms ipc call clipboard toggle"))
             hl.bind("SUPER + comma", hl.dsp.exec_cmd("dms ipc call settings focusOrToggle"))
             -- hl.bind("SUPER + E", hl.dsp.exec_cmd("EDITOR=nvim kitty --class yazi --execute yazi"))
+	    -- Toggle Yazi as a scratchpad on a special workspace, preserving its state
 	    hl.bind("SUPER + E", function()
 	        local yazi_open = false
 	        for _, w in pairs(hl.get_windows()) do
@@ -122,12 +125,27 @@ in
 	            end
 	        end
 	        if yazi_open then
-	            hl.dispatch(hl.dsp.window.kill({ window = "class:yazi" }))
+	            hl.dispatch(hl.dsp.workspace.toggle_special("yazi"))
 	        else
 	            hl.dispatch(hl.dsp.exec_cmd("EDITOR=nvim kitty --class yazi --execute yazi"))
+	            hl.dispatch(hl.dsp.workspace.toggle_special("yazi"))
 	        end
 	    end)
-            hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("nautilus"))
+	    -- Toggle Nautilus as a scratchpad on a special workspace, preserving its state
+	    hl.bind("SUPER + SHIFT + E", function()
+	        local nautilus_open = false
+	        for _, w in pairs(hl.get_windows()) do
+	            if w.class == "org.gnome.Nautilus" then
+	                nautilus_open = true
+	            end
+	        end
+	        if nautilus_open then
+	            hl.dispatch(hl.dsp.workspace.toggle_special("nautilus"))
+	        else
+	            hl.dispatch(hl.dsp.exec_cmd("nautilus"))
+	            hl.dispatch(hl.dsp.workspace.toggle_special("nautilus"))
+	        end
+	    end)
             hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("dms screenshot region"))
             
             -- Focus : hl.dsp.focus({ direction = ... }) -- mots complets, pas l/r/u/d
