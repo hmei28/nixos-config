@@ -1,27 +1,18 @@
 { pkgs, ... }:
 {
   boot = {
-#    kernelModules = [ 
-#      # to manage bus i2c for the brightness of external monitor
-#      "i2c-dev"
-#    ];
     loader= {
       efi.canTouchEfiVariables = true;
       timeout = 0;
       systemd-boot = {
         enable = true;
-        configurationLimit = 10;
+        configurationLimit = 6;
       };
     };
     plymouth = {
       enable = true;
-      theme = "cuts";
-      themePackages = with pkgs; [
-        # By default we would install all themes
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "cuts" ];
-        })
-      ];
+      theme = "catppuccin-macchiato";
+      themePackages = [ pkgs.catppuccin-plymouth ];
     };
 
     # Enable "Silent boot"
