@@ -52,7 +52,7 @@
           install_url = moz "darkreader";
           installation_mode = "force_installed";
           private_browsing = true;
-          default_area = "menupanel";
+          default_area = "navbar";
         };
         # tampermonkey
         "firefox@tampermonkey.net" = {
@@ -63,6 +63,12 @@
         # Wappalyzer
         "wappalyzer@crunchlabz.com" = {
           install_url = moz "wappalyzer";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
+        # Consent-O-Matic
+        "gdpr@cavi.au.dk" = {
+          install_url = moz "consent-o-matic";
           installation_mode = "force_installed";
           private_browsing = true;
         };
