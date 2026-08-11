@@ -12,6 +12,12 @@
           redhat.vscode-yaml
           yzhang.markdown-all-in-one
           pkief.material-icon-theme
+          signageos.signageos-vscode-sops
+          catppuccin.catppuccin-vsc
+          hashicorp.terraform
+          tamasfe.even-better-toml
+          unifiedjs.vscode-mdx
+          shardulm94.trailing-spaces
         ];
       userSettings = {
         "window.autoDetectColorScheme" = true;
