@@ -57,6 +57,7 @@ let
                   inputs.dms-plugin-registry.homeModules.dms-plugin-registry
                   inputs.sops-nix.homeManagerModules.sops
                   inputs.zen-browser.homeModules.twilight
+                  inputs.nix-index-database.homeModules.default
                 ];
               };
             }) usernames

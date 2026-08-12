@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   programs = {
+    nix-index-database.comma.enable = true;
+
     ripgrep.enable = true;
 
     zoxide = {
@@ -21,6 +23,7 @@
     dust
     fd
     glow
+    plakar
     screen
     tldr
     yq

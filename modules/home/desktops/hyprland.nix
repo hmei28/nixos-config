@@ -56,8 +56,8 @@ in
               decoration = {
                   rounding = 12,
           
-                  active_opacity = 0.8,
-                  inactive_opacity = 0.6,
+                  active_opacity = 0.9,
+                  inactive_opacity = 0.7,
                   fullscreen_opacity = 0.9,
 
                   shadow = {
@@ -81,7 +81,7 @@ in
           hl.window_rule({ match = { class = "^(blueman-manager)$" }, float = true })
 	  hl.window_rule({ match = { class = "^(org\\.gnome\\.)" }, border_size = 0, rounding = 12 })
 	  -- Floating windows
-          hl.window_rule({ match = { class = "^(yazi)$" }, float = true, size = "50% 80%", workspace = "special:yazi silent" })
+          hl.window_rule({ match = { class = "^(yazi)$" }, float = true, size = "50% 30%", center = true, workspace = "special:yazi silent" })
           hl.window_rule({ match = { class = "^(com.danklinux.dms)$" }, float = true })
           hl.window_rule({ match = { class = "^(org\\.gnome\\.Nautilus)$" }, float = true, workspace = "special:nautilus silent" })
 	  hl.window_rule({ match = { class = "^(kitty)$" }, border_size = 1 })
