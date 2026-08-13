@@ -82,6 +82,7 @@ in
 	  hl.window_rule({ match = { class = "^(org\\.gnome\\.)" }, border_size = 0, rounding = 12 })
 	  -- Floating windows
           hl.window_rule({ match = { class = "^(yazi)$" }, float = true, size = "50% 30%", center = true, workspace = "special:yazi silent" })
+          hl.window_rule({ match = { class = "^(matcha)$" }, float = true, size = "50% 80%", center = true, workspace = "special:matcha silent" })
           hl.window_rule({ match = { class = "^(com.danklinux.dms)$" }, float = true })
           hl.window_rule({ match = { class = "^(org\\.gnome\\.Nautilus)$" }, float = true, workspace = "special:nautilus silent" })
 	  hl.window_rule({ match = { class = "^(kitty)$" }, border_size = 1 })
@@ -102,6 +103,7 @@ in
             
             hl.bind("SUPER + RETURN", hl.dsp.exec_cmd("kitty"))
             hl.bind("SUPER + F", hl.dsp.window.fullscreen())
+            hl.bind("SUPER + W", hl.dsp.window.float())
             hl.bind("SUPER + A", hl.dsp.exec_cmd("zen-twilight"))
             hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen(1))
             hl.bind("SUPER + SHIFT + O", hl.dsp.exec_cmd("dms ipc call notepad toggle"))
@@ -144,6 +146,21 @@ in
 	        else
 	            hl.dispatch(hl.dsp.exec_cmd("nautilus"))
 	            hl.dispatch(hl.dsp.workspace.toggle_special("nautilus"))
+	        end
+	    end)
+	    -- Toggle Matcha as a scratchpad on a special workspace, preserving its state
+	    hl.bind("SUPER + M", function()
+	        local matcha_open = false
+	        for _, w in pairs(hl.get_windows()) do
+	            if w.class == "matcha" then
+	                matcha_open = true
+	            end
+	        end
+	        if matcha_open then
+	            hl.dispatch(hl.dsp.workspace.toggle_special("matcha"))
+	        else
+	            hl.dispatch(hl.dsp.exec_cmd("kitty --class matcha --execute matcha"))
+	            hl.dispatch(hl.dsp.workspace.toggle_special("matcha"))
 	        end
 	    end)
             hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("dms screenshot region"))

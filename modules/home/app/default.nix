@@ -5,6 +5,7 @@
     ./kitty.nix
     ./imv.nix
     ./messaging.nix
+    ./matcha.nix
     ./vlc.nix
     ./libreoffice.nix
   ];
