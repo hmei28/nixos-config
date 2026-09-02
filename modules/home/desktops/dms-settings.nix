@@ -279,20 +279,6 @@
       centeringMode = "index";
       clockDateFormat = "";
       lockDateFormat = "";
-      greeterRememberLastSession = true;
-      greeterRememberLastUser = true;
-      greeterAutoLogin = false;
-      greeterEnableFprint = false;
-      greeterEnableU2f = false;
-      greeterWallpaperPath = "";
-      greeterLockDateFormat = "";
-      greeterFontFamily = "";
-      greeterWallpaperFillMode = "";
-      greeterPamExternallyManaged = false;
-      greeterSyncPending = true;
-      greeterSyncBaseline = {
-        showSeconds = false;
-      };
       mediaSize = 1;
       appLauncherViewMode = "grid";
       spotlightModalViewMode = "grid";

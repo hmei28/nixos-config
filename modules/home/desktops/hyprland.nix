@@ -16,6 +16,9 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       configType = "lua";
+      # Hyprland est installé par le module NixOS (programs.hyprland) ;
+      # package = null évite le doublon de sessions .desktop dans tuigreet
+      package = null;
       systemd.enable = false;
 
       extraLuaFiles = {

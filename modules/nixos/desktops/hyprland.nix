@@ -1,4 +1,4 @@
-{config, pkgs, inputs, lib, username, ... }:
+{config, pkgs, inputs, lib, ... }:
 
 {
   config = lib.mkIf (config.desktop == "hyprland") {
@@ -25,27 +25,13 @@
         inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
-    programs.dank-material-shell.greeter = {
+    services.greetd = {
       enable = true;
-      compositor = {
-        name = "hyprland";
-        customConfig = ''
-          hl.env("DMS_RUN_GREETER", "1")
-          
-          hl.config({
-              misc = {
-                  disable_hyprland_logo = true
-              },
-              input = {
-                  kb_layout = "fr"
-              }
-          })
-        '';
-      };
-      configHome = "/home/${username}";
-      logs = {
-        save = true; 
-        path = "/tmp/dms-greeter.log";
+      settings = {
+        default_session = {
+          command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-session --asterisks --user-menu";
+          user = "greeter";
+        };
       };
     };
     security.pam.services.greetd.enableGnomeKeyring = true;

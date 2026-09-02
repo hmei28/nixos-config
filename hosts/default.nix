@@ -33,7 +33,6 @@ let
         ./${hostname}
         self.nixosModules.default
         inputs.dms.nixosModules.dank-material-shell
-        inputs.dms.nixosModules.greeter
 
         # Home-manager
         home-manager.nixosModules.home-manager
