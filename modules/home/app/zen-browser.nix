@@ -61,11 +61,11 @@
           private_browsing = true;
         };
         # Wappalyzer
-        "wappalyzer@crunchlabz.com" = {
-          install_url = moz "wappalyzer";
-          installation_mode = "force_installed";
-          private_browsing = true;
-        };
+        #"wappalyzer@crunchlabz.com" = {
+        #  install_url = moz "wappalyzer";
+        #  installation_mode = "force_installed";
+        #  private_browsing = true;
+        #};
         # Consent-O-Matic
         "gdpr@cavi.au.dk" = {
           install_url = moz "consent-o-matic";
