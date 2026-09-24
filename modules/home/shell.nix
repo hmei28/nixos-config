@@ -51,12 +51,14 @@
           "$kubernetes"
           "$git_branch"
           "$git_status"
+          "$fill"
+          "$time"
           "$line_break"
           "$character"
         ];
         directory = {
-          truncation_length = 3;
-          truncation_symbol = "…/";
+          truncation_length = 0;
+          truncate_to_repo = false;
           style = "bold green";
           format = "[$path]($style) ";
         };
@@ -84,6 +86,15 @@
           symbol = "OS:";
           format = "[$symbol\\[$project\\]]($style) ";
           style = "bold red";
+        };
+        fill = {
+          symbol = " ";
+        };
+        time = {
+          disabled = false;
+          format = "[$time]($style)";
+          time_format = "%T";
+          style = "dimmed white";
         };
       };
     };
