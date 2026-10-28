@@ -8,5 +8,6 @@
     ./matcha.nix
     ./vlc.nix
     ./libreoffice.nix
+    ./openchamber.nix
   ];
 }

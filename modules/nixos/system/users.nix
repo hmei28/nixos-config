@@ -5,6 +5,7 @@
     extraGroups = [
       "wheel"
       "networkmanager"
+      "input"
       # to manage external monitor (brightness)
       "i2c"
     ];

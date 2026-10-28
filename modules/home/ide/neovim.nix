@@ -7,6 +7,8 @@
     viAlias = true;
 
     withPython3 = true;
+    # explicit to silence nixpkgs default-change warning (legacy default true)
+    withRuby = true;
     plugins = with pkgs.vimPlugins; [
       LazyVim
       # Completion & LSP

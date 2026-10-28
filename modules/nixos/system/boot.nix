@@ -16,8 +16,8 @@
     };
 
     # Enable "Silent boot"
+    # note: boot.initrd.verbose was removed from nixpkgs (Scripted stage 1 removed)
     consoleLogLevel = 3;
-    initrd.verbose = false;
     kernelParams = [
       "quiet"
       "splash"
