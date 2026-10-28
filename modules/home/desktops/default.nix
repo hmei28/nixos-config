@@ -12,6 +12,7 @@
     ./dms.nix
     ./dms-settings.nix
     ./filemanager.nix
+    ./dfiles.nix
     ./cursor.nix
     ./espanso.nix
     ./wallpapers.nix

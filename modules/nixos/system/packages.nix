@@ -10,6 +10,8 @@
     libinput
     acpid
     ddcutil
+    wl-clipboard
+    tesseract
   ];
   services = {
     udev = {
