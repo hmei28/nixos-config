@@ -21,7 +21,13 @@ in{
     (pkgs.callPackage "${src}/nix/package.nix" {
       self = src;
       version = (builtins.fromJSON (builtins.readFile "${oc}/package.json")).version;
-      opencodeCli = oc.packages.${pkgs.system}.opencode-cli;
+      # OpenChamber prefixes its wrapper PATH with this CLI and gates the
+      # server on MINIMUM_OPENCODE_VERSION = 2.1.0, so the flake-pinned
+      # opencode-cli 2.0.32 tripped the version gate and offered its
+      # out-of-Nix installer. nixpkgs opencode (>= 2.1.0) is the same
+      # derivation as the user CLI in cli/ai.nix; upstream's "nixpkgs is
+      # the older 1.x line" comments are stale at this pin.
+      opencodeCli = pkgs.opencode;
     })
   ];
 }

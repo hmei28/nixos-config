@@ -87,7 +87,6 @@ in
           hl.window_rule({ match = { class = "^(yazi)$" }, float = true, size = "50% 30%", center = true, workspace = "special:yazi silent" })
           hl.window_rule({ match = { class = "^(matcha)$" }, float = true, size = "50% 80%", center = true, workspace = "special:matcha silent" })
           hl.window_rule({ match = { class = "^(com.danklinux.dms)$" }, float = true })
-          hl.window_rule({ match = { class = "^(dev\\.duxlabs\\.files)$" }, float = true })
 	  hl.window_rule({ match = { class = "^(kitty)$" }, border_size = 1 })
 
         '';
