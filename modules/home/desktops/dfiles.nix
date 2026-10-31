@@ -7,10 +7,13 @@
       # Instance résidente : fenêtres qui s'ouvrent vite + portail réactif
       systemd.enable = true;
 
-      # Enregistre le backend dfiles auprès de xdg-desktop-portal.
-      # Passer preferred = true (desktop = "hyprland") plus tard pour
-      # en faire le backend FileChooser par défaut.
-      portal.enable = true;
+      # dfiles est le backend FileChooser préféré de la session Hyprland :
+      # les dialogues Ouvrir/Enregistrer des apps passent par lui.
+      portal = {
+        enable = true;
+        preferred = true;
+        desktop = "hyprland";
+      };
     };
   };
 }

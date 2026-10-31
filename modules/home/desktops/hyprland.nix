@@ -87,7 +87,7 @@ in
           hl.window_rule({ match = { class = "^(yazi)$" }, float = true, size = "50% 30%", center = true, workspace = "special:yazi silent" })
           hl.window_rule({ match = { class = "^(matcha)$" }, float = true, size = "50% 80%", center = true, workspace = "special:matcha silent" })
           hl.window_rule({ match = { class = "^(com.danklinux.dms)$" }, float = true })
-          hl.window_rule({ match = { class = "^(org\\.gnome\\.Nautilus)$" }, float = true, workspace = "special:nautilus silent" })
+          hl.window_rule({ match = { class = "^(dev\\.duxlabs\\.files)$" }, float = true })
 	  hl.window_rule({ match = { class = "^(kitty)$" }, border_size = 1 })
 
         '';
@@ -136,21 +136,8 @@ in
 	            hl.dispatch(hl.dsp.workspace.toggle_special("yazi"))
 	        end
 	    end)
-	    -- Toggle Nautilus as a scratchpad on a special workspace, preserving its state
-	    hl.bind("SUPER + SHIFT + E", function()
-	        local nautilus_open = false
-	        for _, w in pairs(hl.get_windows()) do
-	            if w.class == "org.gnome.Nautilus" then
-	                nautilus_open = true
-	            end
-	        end
-	        if nautilus_open then
-	            hl.dispatch(hl.dsp.workspace.toggle_special("nautilus"))
-	        else
-	            hl.dispatch(hl.dsp.exec_cmd("nautilus"))
-	            hl.dispatch(hl.dsp.workspace.toggle_special("nautilus"))
-	        end
-	    end)
+	    -- Toggle dfiles (daemon résident, toggle IPC natif)
+	    hl.bind("SUPER + SHIFT + E", hl.dsp.exec_cmd("dfiles ipc ui.toggle"))
 	    -- Toggle Matcha as a scratchpad on a special workspace, preserving its state
 	    hl.bind("SUPER + M", function()
 	        local matcha_open = false

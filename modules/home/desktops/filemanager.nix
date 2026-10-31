@@ -2,8 +2,6 @@
 {
   config = lib.mkIf (config.desktop == "hyprland") {
     home.packages = with pkgs; [
-      nautilus
-      sushi
       file-roller
     ];
 
