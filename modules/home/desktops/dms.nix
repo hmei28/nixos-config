@@ -16,11 +16,17 @@
 
       plugins = {
         aiAssistant.enable = true;
+        bongoCat.enable = true;
         calculator.enable = true;
         dankActions.enable = true;
         dankBitwarden.enable = true;
+        dankGifSearch.enable = true;
         emojiLauncher.enable = true;
+        handMirror.enable = true;
+        ocrScanner.enable = true;
         powerUsagePlugin.enable = true;
+        quickCapture.enable = true;
+        screenkey.enable = true;
         webSearch.enable = true;
       };
     };

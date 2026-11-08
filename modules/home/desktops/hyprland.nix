@@ -152,7 +152,7 @@ in
 	            hl.dispatch(hl.dsp.workspace.toggle_special("matcha"))
 	        end
 	    end)
-            hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("dms screenshot region"))
+            hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("dms ipc call quickCapture screenshot region edit"))
             
             -- Focus : hl.dsp.focus({ direction = ... }) -- mots complets, pas l/r/u/d
             hl.bind("SUPER + H", hl.dsp.focus({ direction = "left" }))

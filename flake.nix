@@ -47,12 +47,12 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # Deliberate exception to the follows rule: openchamber bakes its
-    # fixed-output dependency hashes (nix/hashes.json) in its CI and they
-    # only reproduce against its own locked nixpkgs. The rev is also pinned:
-    # any bun.lock move upstream invalidates the locally re-baked hash set
-    # in modules/home/app/openchamber.nix.
-    openchamber.url = "github:openchamber/openchamber/b9f2c2281aca1e0652878a82d1e90deb655df1d0";
+    # Deliberate exception to the follows rule: the package is consumed
+    # straight from upstream's flake (packages.<system>.openchamber) and is
+    # CI-tested against its own locked nixpkgs/bun2nix/opencode, so those
+    # inputs stay autonomous. Tag-pinned; no hash to re-bake since v2.7.0
+    # (deps derive from bun.lock, see upstream nix/README.md).
+    openchamber.url = "github:openchamber/openchamber/v2.7.0";
   };
 
   outputs = inputs @ {
