@@ -12,6 +12,11 @@
     ];
     builders-use-substitutes = true;
     download-buffer-size = 1073741824;
+
+    # Keep builds from saturating all cores/RAM (14 GiB, no disk swap):
+    # 4 parallel jobs x 4 threads each instead of 12 jobs x ~12 threads
+    max-jobs = 4;
+    cores = 4;
   };
 
   # do garbage collection weekly to keep disk usage low

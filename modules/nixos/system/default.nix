@@ -11,6 +11,7 @@
     ./users.nix
     ./i18n.nix
     ./nixos.nix
+    ./memory.nix
     ./yubikey.nix
     ./networkmanager.nix
     ./hardware.nix
